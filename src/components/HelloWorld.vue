@@ -1,14 +1,21 @@
 <template>
 <div class="container">
   <div class="row">
-    <div class="col">
-      First in DOM, no order applied
+    <div class="col-6">
+      <div><h1>facebook</h1></div>
+      <div class="">
+      facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida 
     </div>
-    <div class="col order-12">
+    </div>
+    
+    <div class="col-6 form">
       Second in DOM, with a larger order
-    </div>
-    <div class="col order-1">
-      Third in DOM, with an order of 1
+      <div><input class="ingrsar" placeholder="correo electronico o numero de telefono"></div>
+      <div><input class="password" placeholder="contraseña"></div>
+      <div><input class="" type="button" value="Enviar" ></div>
+      <div><a>olvidaste tu contraseña?</a></div>
+
+
     </div>
   </div>
 </div>
@@ -25,25 +32,12 @@ export default {
   },
 
   mounted(){
-    //this.nota();
+   
   },
   
   methods:{
-    nota(){
-      if(this.calificacion<3.0){
-        alert('deficiente')
-      }else if (this.calificacion <3.5){
-        alert('aceptable')
-      }else if (this.calificacion<4.5){
-        alert('sobresaliente')
-      }else if(this.calificacion<=5){
-        alert('excelente')
-      }else{
-        alert('la nota debe ser de 0 a 5')
-      }
-    }
+    
   },
-
 
 }
 </script>
