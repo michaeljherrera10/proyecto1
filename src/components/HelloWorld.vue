@@ -2,22 +2,27 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <div><h1>facebook</h1></div>
-      <div class="">
-      facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida 
+      <h1 class="">facebook</h1>
+      <p class="">facebook te ayuda a comunicarte y compartir con las personas que forman parte de tu vida </p>
     </div>
-    </div>
-    
-    <div class="col-6 form">
-      Second in DOM, with a larger order
-      <div><input class="ingrsar" placeholder="correo electronico o numero de telefono"></div>
-      <div><input class="password" placeholder="contraseña"></div>
-      <div><input class="" type="button" value="Enviar" ></div>
-      <div><a>olvidaste tu contraseña?</a></div>
-
-
-    </div>
-  </div>
+  <div class="col">
+    <form>
+     <div class="form-group py-3">
+       <input type="email" class="form-control"  aria-describedby="emailHelp" placeholder="Correo o numero de telefono">
+     </div>
+     <div class="form-group pb-3">
+       <input type="password" class="form-control" placeholder="contraseña">
+     </div>
+     <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+     <div class="form-group py-2">
+      <label>olvidaste tu contraseña?</label>
+      <div class="form-group py-2">
+        <button type="button" class="btn btn-success">Crear cuenta nueva</button>
+      </div>
+     </div>
+    </form>
+   </div>
+ </div>
 </div>
 </template>
 
