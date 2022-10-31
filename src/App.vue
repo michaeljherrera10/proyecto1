@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <HolaProyecto msg=""/>
+    <newProject msg=""/>
   </div>
 </template>
 
 <script>
-import HolaProyecto from './components/HelloWorld.vue'
+import newProject from './components/newComponents.vue';
 
 export default {
   name: 'App',
   components: {
-    HolaProyecto
+    newProject
   }
 }
 </script>

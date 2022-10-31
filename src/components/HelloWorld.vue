@@ -11,12 +11,12 @@
       <div class="card shadow p-2 ms-5">
         <form class="">
             <div class="form-group py-3 px-3">
-              <input type="email" class="form-control f-custom"  placeholder="Correo o numero de telefono">
+              <input type="email" class="form-control f-custom"  placeholder="Correo o numero de telefono" v-model="palabra">
             </div>
              <div class="form-group pb-3 px-3">
                <input type="password" class="form-control f-custom" placeholder="Contraseña">
              </div>
-              <div class="px-3"><button type="submit" class="button-is w-100">Iniciar sesión</button>
+              <div class="px-3"><button type="button" class="button-is w-100" @click="buscarPalabra(palabra)">Iniciar sesión</button>
               </div>
               <div class="form-group">
                  <div class="py-3"><a href="#">Olvidaste tu contraseña?</a></div>
@@ -41,17 +41,39 @@ export default {
   name: 'HolaProyecto',
  
   data(){
-    
-       //this.calificacion = prompt('digite la nota ')
-       
+    return {
+      palabra:'',
+      // contenedor: ["perro","gato","loro","agua",3,"mora","fresa","mango",4,"uva","vaca"],
+        //  numeros: [5,8,6,7,1,12,45,1,57,32,25,10],
+        //  numeros2: [],
+    } 
   },
 
   mounted(){
-   
+  //  this.buscarPalabra('perro');
   },
   
   methods:{
+    buscarPalabra(number){
+      // let arraTemp = [];
+     /* for(let i= 0; i < this.contenedor.length; i++){
+        if(this.contenedor[i] === word){
+          console.log('se encontro palabra ', this.contenedor[i] +'  en la posicion '+ i);
+        }
+      }
+
+      console.log('no se encontro palabra');*/
     
+      for (let i=0; i< this.numeros.length;i++){
+          if(this.numeros[i]>10){
+              this.numeros2.push(this.numeros[i] + parseInt(number))
+          }
+        }
+
+         
+          
+          console.log(this.numeros2)
+    },
   },
 
 }
