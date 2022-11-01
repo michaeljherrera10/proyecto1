@@ -5,7 +5,7 @@
       </div>
       <!-- Button trigger modal -->
       <div class="row col-2 ms-0 fs-1 pb-2">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i>
+        <button type="button" class="btn btn-primary" @click="agregar()" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-plus" aria-hidden="true"></i>
         Agregar Persona
       </button>
       </div>
@@ -62,12 +62,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(data, index)  in lista " :key="data">
+          <tr v-for="(data, index)  in lista " :key="index">
             <th scope="row">{{ index + 1}}</th>
             <td>{{data.nombre}}</td>
             <td>{{data.apellido}}</td>
             <td>{{data.edad}}</td>
-            <td><a href="#"><i class="fa fa-pencil" title="Editar" aria-hidden="true"></i></a>  <a href="#"><i class="fa fa-trash" title="Borrar" aria-hidden="true"></i></a></td>
+            <td><a href="#" data-bs-toggle="modal" @click="edit(index)" data-bs-target="#exampleModal" ><i class="fa fa-pencil" title="Editar"   aria-hidden="true"></i></a>  <a href="#"><i class="fa fa-trash" title="Borrar" aria-hidden="true"></i></a></td>
           </tr>
         </tbody>
       </table>
@@ -89,7 +89,9 @@ export default {
         apellido: '',
         edad: ''
       },
-      lista: [] 
+      lista: [],
+      action: '',
+      indice:0,
     }
   },
 
@@ -112,14 +114,21 @@ export default {
     },
 
     guardar(){
-     this.lista.push({
+      if(this.action=='agregar'){
+       this.lista.push({
         foto: this.form.foto,
         nombre: this.form.nombre,
         apellido:this.form.apellido,
         edad: this.form.edad
-      })
-     console.log("lista completa", this.lista)
-     this.resetForm()
+      })  
+       
+      } else {
+     this.lista[this.indice].nombre = this.form.nombre
+     this.lista[this.indice].apellido=this.form.apellido
+     this.lista[this.indice].edad=this.form.edad
+     this.lista[this.indice].foto=this.form.foto
+      }
+      this.resetForm()
     },
 
     resetForm () {
@@ -127,7 +136,25 @@ export default {
       this.form.nombre = ''
       this.form.apellido=''
       this.form.edad=''
-    }
+    },
+
+    edit(index){
+     this.form.nombre=this.lista[index].nombre 
+     this.form.apellido=this.lista[index].apellido
+     this.form.edad=this.lista[index].edad
+     this.form.foto=this.lista[index].foto
+     
+     this.action='editar'
+     this.indice=index
+    },
+
+    agregar(){
+    this.action='agregar'
+    },
+  
+
+
+
   },
 }
 </script>
