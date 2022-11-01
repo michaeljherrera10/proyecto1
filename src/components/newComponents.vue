@@ -67,7 +67,7 @@
             <td>{{data.nombre}}</td>
             <td>{{data.apellido}}</td>
             <td>{{data.edad}}</td>
-            <td><a href="#" data-bs-toggle="modal" @click="edit(index)" data-bs-target="#exampleModal" ><i class="fa fa-pencil" title="Editar"   aria-hidden="true"></i></a>  <a href="#"><i class="fa fa-trash" title="Borrar" aria-hidden="true"></i></a></td>
+            <td><a href="#" data-bs-toggle="modal" @click="edit(index)" data-bs-target="#exampleModal" ><i class="fa fa-pencil" title="Editar"   aria-hidden="true"></i></a>  <a href="#" @click="borrar(index)" ><i class="fa fa-trash" title="Borrar" aria-hidden="true"></i></a></td>
           </tr>
         </tbody>
       </table>
@@ -151,10 +151,11 @@ export default {
     agregar(){
     this.action='agregar'
     },
-  
 
-
-
+    borrar(index){
+     this.lista.splice(index,1)
+     
+    },
   },
 }
 </script>
